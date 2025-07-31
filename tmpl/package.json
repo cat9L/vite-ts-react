@@ -1,0 +1,20 @@
+{
+  "name": "{{name}}",
+  "productName": "{{productName}}",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "main": ".vite/build/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "keywords": [],
+  "author": {
+    "name": "{{author}}",
+    "email": "{{email}}"
+  },
+  "license": "MIT"
+}

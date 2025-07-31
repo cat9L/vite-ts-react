@@ -1,0 +1,36 @@
+{
+  "name": "@electron-forge/template-vite-ts-react",
+  "version": "1.0.0",
+  "description": "Electron Forge template with Vite, TypeScript, and React",
+  "main": "index.js",
+  "author": {
+    "name": "cat9",
+    "email": "cat9@cat9.cc"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cat9L/vite-ts-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cat9L/vite-ts-react/issues"
+  },
+  "homepage": "https://github.com/cat9L/vite-ts-react",
+  "keywords": [
+    "electron",
+    "electron-forge",
+    "template",
+    "vite",
+    "typescript",
+    "react"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@electron-forge/shared-types": "^7.0.0"
+  },
+  "peerDependencies": {
+    "@electron-forge/cli": "^7.0.0"
+  }
+}
