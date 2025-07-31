@@ -13,19 +13,32 @@
 
 ## 使用方法
 
-### 创建新项目
+### 安装和使用模板
 
-使用 Electron Forge CLI 创建一个新项目：
+正确的使用流程如下：
 
-```bash
-npm init electron-app@latest my-app -- --template=@electron-forge/template-vite-ts-react
-```
-
-或者
+1. 先将模板仓库克隆到本地：
 
 ```bash
-npx create-electron-app my-app --template=@electron-forge/template-vite-ts-react
+# 克隆仓库到本地
+git clone https://github.com/cat9L/vite-ts-react.git vite-ts-react-template
 ```
+
+2. 然后全局安装本地模板：
+
+```bash
+# 全局安装本地模板
+npm install -g ./vite-ts-react-template
+```
+
+3. 使用已安装的模板创建项目：
+
+```bash
+# 使用全局安装的模板
+npx electron-forge init --template=@electron-forge/template-vite-ts-react my-app-name
+```
+
+> **注意**：根据测试结果和 Electron Forge 文档，直接使用 GitHub 仓库链接作为模板源会失败，必须先将模板克隆到本地并全局安装。
 
 ### 项目结构
 
@@ -64,6 +77,87 @@ my-app/
 - `vite.*.config.ts` - Vite 配置
 - `main/main.ts` - 主进程代码
 - `renderer/src/App.tsx` - React 应用程序入口点
+
+## 使用示例
+
+以下是一个完整的使用示例，展示如何从头开始安装模板并创建新项目：
+
+```bash
+# 1. 克隆模板仓库到本地（如果您已经有本地模板目录，可以跳过此步骤）
+git clone https://github.com/cat9L/vite-ts-react.git vite-ts-react-template
+
+# 2. 全局安装模板
+cd vite-ts-react-template  # 进入模板目录
+npm install -g .  # 全局安装当前目录的模板
+cd ..             # 返回上层目录
+
+# 3. 创建新的项目目录并初始化
+mkdir test-app && cd test-app
+npx electron-forge init --template=@electron-forge/template-vite-ts-react
+
+# 4. 启动应用进行测试
+npm start
+```
+
+执行上述命令后，您将看到一个包含以下文件结构的新项目：
+- `main/` - 包含主进程代码
+- `renderer/` - 包含渲染进程代码和 React 应用
+- 各种配置文件如 `forge.config.ts`、`vite.*.config.ts` 等
+
+启动应用后，您将看到一个运行中的 Electron 应用程序窗口，其中包含了 React 应用。
+
+## 故障排除
+
+### 模板识别问题
+
+如果遇到模板无法识别的问题，请确保：
+
+1. 已正确全局安装模板：
+   ```bash
+   npm install -g ./vite-ts-react-template
+   ```
+
+2. 安装后可以通过以下命令验证模板是否已正确安装：
+   ```bash
+   npm list -g | grep electron-forge-template
+   ```
+
+### 项目创建问题
+
+如果在创建项目时遇到问题：
+
+1. 确保您的 Electron Forge CLI 版本与模板兼容：
+   ```bash
+   npx electron-forge --version
+   ```
+
+2. 尝试使用完整的模板名称：
+   ```bash
+   npx electron-forge init --template=@electron-forge/template-vite-ts-react my-app-name
+   ```
+
+3. 确保按照正确的流程操作：
+   ```bash
+   # 1. 克隆仓库
+   git clone https://github.com/cat9L/vite-ts-react.git vite-ts-react-template
+   
+   # 2. 全局安装
+   npm install -g ./vite-ts-react-template
+   
+   # 3. 使用模板
+   npx electron-forge init --template=@electron-forge/template-vite-ts-react my-app-name
+   ```
+
+### 应用启动问题
+
+如果应用无法正常启动：
+
+1. 确保所有依赖已正确安装：
+   ```bash
+   npm install
+   ```
+
+2. 检查控制台错误信息，解决相关依赖或配置问题。
 
 ## 许可证
 
